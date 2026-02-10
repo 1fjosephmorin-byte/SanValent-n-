@@ -1,1 +1,139 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Quieres ser mi San Valentín?</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 420px;
+      width: 90%;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+    .buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    button {
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+    .yes {
+      background: #fff;
+      color: #ff4d6d;
+      font-weight: bold;
+    }
+    .no {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .heart {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+      #noBtn {
+      position: relative;
+    }.floating {
+  position: absolute !important;
+  transition: top 0.2s ease, left 0.2s ease;
+}
 
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="heart">❤️</div>
+    <h1 style="font-size:2.6em;margin-bottom:10px">Yara 💖</h1>
+    <h2 style="font-weight:normal;margin-top:0">Mi cielo…</h2>
+    <p>
+      No necesito una fecha para amarte, pero sí una excusa bonita para preguntarte algo especial.
+      <br /><br />
+      ¿Te gustaría ser mi San Valentín?
+    </p>
+    <div class="buttons">
+      <button class="yes" onclick="yesAnswer()">Sí 💕</button>
+      <button class="no" id="noBtn">No 🙈</button>
+    </div><!-- Música romántica (CD9) -->
+<div style="margin-top:25px">
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/2E5V1Yb7Qy4s8p9x8JrIo2" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <p style="font-size:0.85em;opacity:.9;margin-top:8px">Dale play 💖</p>
+</div>
+
+  </div>
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const card = document.querySelector('.card');function moveButton() {
+  const rect = card.getBoundingClientRect();
+  const btnRect = noBtn.getBoundingClientRect();
+
+  const maxX = rect.width - btnRect.width - 20;
+  const maxY = rect.height - btnRect.height - 20;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.classList.add('floating');
+  noBtn.style.left = x + 'px';
+  noBtn.style.top = y + 'px';
+}
+
+noBtn.addEventListener('mouseenter', moveButton);
+noBtn.addEventListener('touchstart', moveButton);
+
+function yesAnswer() {
+  document.body.innerHTML = `
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:linear-gradient(135deg,#ff758c,#ff7eb3);color:white;text-align:center;font-family:'Segoe UI',sans-serif;padding:30px">
+      <div>
+        <h1 style="font-size:3em">Sabía que dirías que sí, Yara ❤️</h1>
+        <p style="font-size:1.3em;line-height:1.5">
+          Gracias por ser mi lugar bonito, mi calma y mi sonrisa diaria.<br />
+          Hoy, mañana y siempre… te elijo a ti 💖
+        </p>
+        <div style="font-size:3em;margin-top:20px">💘✨💘</div>
+      </div>
+    </div>
+  `;
+}
+
+  </script>
+</body>
+</html>
